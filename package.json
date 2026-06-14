@@ -1,0 +1,27 @@
+{
+  "name": "react-app",
+  "version": "1.0.0",
+  "description": "A small React 18 app",
+  "keywords": [
+    "react",
+    "javascript"
+  ],
+  "homepage": "https://github.com/debdeep/React-App#readme",
+  "bugs": {
+    "url": "https://github.com/debdeep/React-App/issues"
+  },
+  "repository": {
+    "type": "npm ",
+    "url": "git+https://github.com/debdeep/React-App.git"
+  },
+  "license": "ISC",
+  "author": "Debdeep Majumder",
+  "type": "commonjs",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  }
+}
