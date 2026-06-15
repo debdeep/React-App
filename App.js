@@ -8,11 +8,14 @@
         </div
 */
 
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 const dom = React.createElement("div", { id: "parent" },
     React.createElement("div", { id: "child" },
         [
-            React.createElement("h1", { id: "id-1" }, "Header Tag"),
-            React.createElement("h2", { id: "id-2" }, "Sub Header Tag"),
+            React.createElement("h1", { id: "header", key: "header" }, "This is Header Tag"),
+            React.createElement("h2", { id: "subheader", key: "subheader" }, "This is Sub Header Tag"),
         ])
 );
 

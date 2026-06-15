@@ -17,11 +17,14 @@
   "license": "ISC",
   "author": "Debdeep Majumder",
   "type": "commonjs",
-  "main": "App.js",
   "scripts": {
     "test": "jest"
   },
   "devDependencies": {
     "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
