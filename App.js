@@ -1,14 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// JSX is not HTML in JS it is actually HTML-LIKE in js to be used in react
-const jsx = <h1>Welcome to React JSX</h1>
+// React Element - JSX is not HTML in JS it is actually HTML-LIKE in js to be used in react
+const heading = <h1>Welcome to React using JSX</h1>
 
-console.log("JSX:", jsx);
+const Paragraph = () => (<p>I am a Paragraph Component</p>);
+const version = 18.0;
 
-const customElement = React.createElement("h1", { id: "heading", key: "h1" }, "Welcome to React");
+// React Functional Component- which will return some jsx | Name frist word should be capital
+const HeadingComponent = () => (
+    <div id="container">
+        <h1 className="heading">Welcome to React {version} using JSX </h1>
+        <Paragraph />
+    </div>
+);
 
-console.log("createElement:", customElement);
+// const HeadingComponent = () => {
+//     return <h1>Welcome to React using JSX </h1>;
+// }
+
+console.log("JSX:", heading);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(customElement);
+root.render(<HeadingComponent />);
