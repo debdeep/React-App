@@ -16,7 +16,7 @@
   },
   "license": "ISC",
   "author": "Debdeep Majumder",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "dev": "parcel index.html",

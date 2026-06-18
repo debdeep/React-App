@@ -1,25 +1,52 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import AppLogo from "./src/assets/logo.webp";
 
-// React Element - JSX is not HTML in JS it is actually HTML-LIKE in js to be used in react
-const heading = <h1>Welcome to React using JSX</h1>
-
-const Paragraph = () => (<p>I am a Paragraph Component</p>);
-const version = 18.0;
-
-// React Functional Component- which will return some jsx | Name frist word should be capital
-const HeadingComponent = () => (
-    <div id="container">
-        <h1 className="heading">Welcome to React {version} using JSX </h1>
-        <Paragraph />
+const Header = () => (
+    <div>
+        <img src={AppLogo} alt="App Logo" />
+        <h1> Wecome to Food on Wheels</h1>
     </div>
+
 );
 
-// const HeadingComponent = () => {
-//     return <h1>Welcome to React using JSX </h1>;
-// }
+const Search = () => (
+    <input id="search" type="text" placeholder="Search By restaurant Name.." />
+)
 
-console.log("JSX:", heading);
+const Footer = () => (
+    <div>
+        <div><p> &copy; developed and maintained by Debdeep&trade;, 2026 </p></div>
+        <div><a href="#top">Go to top.</a></div>
+    </div>
+
+)
+
+const RestaurantCard = ({ className = "" }) => (
+    <div className={`card ${className}`.trim()}>
+        <h2>Biriyani By Kilo</h2>
+        <div>Cuisines: Chinese, Indian</div>
+        <div>Ratings: 4.0</div>
+    </div>
+)
+
+const App = () => (
+    <div className="app-container">
+        <header className="app-header">
+            <Header />
+        </header>
+        <div className="app-body">
+            <Search />
+            <div className="cards-row">
+                <RestaurantCard />
+                <RestaurantCard />
+            </div>
+        </div>
+        <footer className="app-footer">
+            <Footer />
+        </footer>
+    </div>
+)
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<HeadingComponent />);
+root.render(<App />);
