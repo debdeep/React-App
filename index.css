@@ -6,12 +6,11 @@
     border: 1px solid lightblue;
 }
 
-.app-header>div>h1 {
-    color: lightcoral;
+.app-header>h1 {
+    color: coral;
 }
 
 .app-body {
-    display: flex;
     flex-direction: column;
     gap: 1rem;
     padding: 20px 10px;
@@ -19,6 +18,9 @@
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
     background-color: azure;
     border: 1px solid grey;
     padding: 1rem;
@@ -31,10 +33,26 @@
 
 .cards-row {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 1rem;
+}
+
+.cards-row>.res-card {
+    background-color: whitesmoke;
+}
+
+.food-veg {
+    background-color: lightgreen;
+    border-radius: 4px;
+    padding: 8px 8px;
+}
+
+.food-non-veg {
+    background-color: lightcoral;
+    border-radius: 4px;
+    padding: 8px 8px;
 }
 
 .app-footer>div {
