@@ -78,7 +78,10 @@ Header.defaultProps = {
 };
 
 const Search = () => (
-    <input id="search" type="text" placeholder="Search By Restaurant Name.." />
+    <>
+        <h2>Find restaurant:</h2>
+        <input id="search" type="text" placeholder="Search By Restaurant Name.." />
+    </>
 )
 
 const Footer = () => (
@@ -88,16 +91,21 @@ const Footer = () => (
     </React.Fragment>
 
 )
+const RestaurantCard = ({ className = "", data }) => {
+    const { name, cuisines, locality, areaName, veg, avgRating } = data?.info || {};
 
-const RestaurantCard = ({ className = "", info }) => (
-    <div className={`card ${className}`.trim()}>
-        <h2>{info.name.toUpperCase()}</h2>
-        <div>{info.cuisines.join(" , ")}</div>
-        <div> {info.locality}, {info.areaName}</div>
-        <div className={info.veg ? 'food-veg' : 'food-non-veg'}> {info.veg ? "Veg" : "Non veg"}</div>
-        <div>{info.avgRating}</div>
-    </div>
-)
+    return (
+        <div className={`card ${className}`.trim()}>
+            <h3>{name?.toUpperCase()}</h3>
+            <div>{cuisines?.join(", ")}</div>
+            <div>{locality}, {areaName}</div>
+            <div className={veg ? 'food-veg' : 'food-non-veg'}>
+                {veg ? "Veg" : "Non veg"}
+            </div>
+            <div>{avgRating}</div>
+        </div>
+    );
+};
 
 const App = () => (
     <div className="app-container">
@@ -107,8 +115,13 @@ const App = () => (
         <div className="app-body">
             <Search />
             <div className="cards-row">
-                <RestaurantCard info={restaurantList[0].info} className="res-card" />
-                <RestaurantCard info={restaurantList[1].info} className="res-card"/>
+                { restaurantList?.map((restaurant) => (
+                    <RestaurantCard key={restaurant.info.id} data={restaurant} className="res-card" />
+                    )
+                )
+                }
+                {/* <RestaurantCard info={restaurantList[0].info}  />
+                <RestaurantCard info={restaurantList[1].info} className="res-card" /> */}
             </div>
         </div>
         <footer className="app-footer">
