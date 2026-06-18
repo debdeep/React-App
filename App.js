@@ -92,7 +92,7 @@ const Footer = () => (
 
 )
 const RestaurantCard = ({ className = "", data }) => {
-    const { name, cuisines, locality, areaName, veg, avgRating } = data?.info || {};
+    const { name, cuisines, locality, areaName, veg, avgRating, aggregatedDiscountInfoV3 } = data?.info || {};
 
     return (
         <div className={`card ${className}`.trim()}>
@@ -102,7 +102,10 @@ const RestaurantCard = ({ className = "", data }) => {
             <div className={veg ? 'food-veg' : 'food-non-veg'}>
                 {veg ? "Veg" : "Non veg"}
             </div>
-            <div>{avgRating}</div>
+            <div className="rating"><span className="star" aria-hidden="true">★</span><span className="rating-value">{avgRating}</span></div>
+            <hr />
+            <span>{aggregatedDiscountInfoV3.header} | {aggregatedDiscountInfoV3.subHeader}</span>
+
         </div>
     );
 };
@@ -115,9 +118,9 @@ const App = () => (
         <div className="app-body">
             <Search />
             <div className="cards-row">
-                { restaurantList?.map((restaurant) => (
+                {restaurantList?.map((restaurant) => (
                     <RestaurantCard key={restaurant.info.id} data={restaurant} className="res-card" />
-                    )
+                )
                 )
                 }
                 {/* <RestaurantCard info={restaurantList[0].info}  />
