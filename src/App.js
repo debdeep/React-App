@@ -16,7 +16,7 @@ const App = () => (
         </header>
         <div className="app-body">
             <Search />
-            <RestaurantList data={restaurantList} />
+            <RestaurantList resListdata={restaurantList} />
         </div>
         <footer className="app-footer">
             <Footer />
