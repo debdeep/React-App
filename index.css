@@ -45,16 +45,24 @@
 
 .food-veg,
 .food-non-veg {
-    display: inline-block;      /* size to content */
-    align-self: flex-start;     /* don't stretch in column flex container */
+    display: inline-block;
+    /* size to content */
+    align-self: flex-start;
+    /* don't stretch in column flex container */
     border-radius: 4px;
-    padding: 2px 6px;           /* smaller padding so badge is tight around text */
+    padding: 2px 6px;
+    /* smaller padding so badge is tight around text */
     font-size: 0.85rem;
     line-height: 1;
 }
 
-.food-veg { background-color: lightgreen; }
-.food-non-veg { background-color: lightcoral; }
+.food-veg {
+    background-color: lightgreen;
+}
+
+.food-non-veg {
+    background-color: lightcoral;
+}
 
 .app-footer>div {
     display: flex;
@@ -72,8 +80,9 @@
 .card hr {
     border: none;
     height: 1px;
-    background-color: rgba(0,0,0,0.12);
-    margin: 8px 0; /* top and bottom spacing */
+    background-color: rgba(0, 0, 0, 0.12);
+    margin: 8px 0;
+    /* top and bottom spacing */
 }
 
 /* Rating star styling */
@@ -83,12 +92,26 @@
     gap: 6px;
     font-weight: 600;
 }
+
 .rating .star {
-    color: #f5b50a; /* gold */
+    color: #f5b50a;
+    /* gold */
     font-size: 1rem;
     line-height: 1;
-    text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 }
+
 .rating .rating-value {
     color: #222;
+}
+
+.filter-btn {
+    display: flex;
+    border-radius: 4px;
+    margin: 1rem auto 0;
+    padding: 8px;
+}
+
+.input-search {
+    padding: 4px;
 }
