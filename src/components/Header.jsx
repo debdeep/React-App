@@ -1,3 +1,4 @@
+import { HEADER } from "./../utils/constants";
 /* 
     <React.Fragment></React.Fragment> VS <></.>
     Both are similar while nesting  multiple JSX elements without adding extra DOM nodes but
@@ -13,7 +14,7 @@ const Header = ({ name }) => (
 
 // Assign default prop in case no header passed
 Header.defaultProps = {
-    name: 'Food truck App'
+    name: HEADER.DEFAULT_NAME
 };
 
 export default Header;

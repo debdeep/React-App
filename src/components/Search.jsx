@@ -1,7 +1,9 @@
+import { SEARCH } from "./../utils/constants";
+
 const Search = () => (
     <>
-        <h2>Find restaurant:</h2>
-        <input id="search" type="text" placeholder="Search By Restaurant Name.." />
+        <h2>{SEARCH.LABEL}</h2>
+        <input id="search" type="text" placeholder={SEARCH.PLACEHOLDER} />
     </>
 );
 
