@@ -6,12 +6,54 @@
     border: 1px solid lightblue;
 }
 
-.app-header>h1 {
-    color: coral;
+.app-header .header-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.app-body {
+.app-header .header-content h1 {
+    color: coral;
+    margin: 0;
+}
+
+.app-logo {
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+/* Responsive logo sizing for smaller screens */
+@media (max-width: 640px) {
+    .app-logo {
+        height: 48px;
+    }
+
+    .app-header .header-content h1 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Make the app fill the viewport so footer can stick to bottom when content is short */
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
     flex-direction: column;
+}
+
+
+
+.app-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
     gap: 1rem;
     padding: 20px 10px;
     background-color: beige;
@@ -46,12 +88,9 @@
 .food-veg,
 .food-non-veg {
     display: inline-block;
-    /* size to content */
     align-self: flex-start;
-    /* don't stretch in column flex container */
     border-radius: 4px;
     padding: 2px 6px;
-    /* smaller padding so badge is tight around text */
     font-size: 0.85rem;
     line-height: 1;
 }
@@ -85,7 +124,6 @@
     /* top and bottom spacing */
 }
 
-/* Rating star styling */
 .rating {
     display: flex;
     align-items: center;
