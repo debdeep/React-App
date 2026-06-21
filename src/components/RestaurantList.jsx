@@ -5,7 +5,7 @@ const RestaurantList = ({ resListdata }) => {
     const [showTopRestaurants, setShowTopRestaurants] = useState(false);
 
     const displayedList = showTopRestaurants
-        ? resListdata?.filter((restaurant) => restaurant?.info?.avgRating > 4)
+        ? resListdata?.filter((restaurant) => restaurant?.info?.avgRating > 4.5)
         : resListdata;
 
     return (

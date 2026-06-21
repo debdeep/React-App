@@ -14,9 +14,9 @@ const Search = ({ resListdata, setFilteredList, originalList }) => {
                     console.log("User Typed:", queryString);
 
                     if (queryString.trim().length > 2) {
-                        const lower = queryString.trim().toLowerCase();
+                        const query = queryString.trim().toLowerCase();
                         const data = originalList?.filter((restaurant) =>
-                            restaurant?.info?.name?.toLowerCase().includes(lower)
+                            restaurant?.info?.name?.toLowerCase().includes(query)
                         );
                         setFilteredList(data);
                     } else {
