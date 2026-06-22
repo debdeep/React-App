@@ -3,7 +3,9 @@ import ReactDOM from "react-dom/client";
 import Header from './components/Header'
 import Search from "./components/Search";
 import Footer from "./components/Footer";
+import AboutUs from "./pages/AboutUs.jsx";
 import RestaurantList from "./components/RestaurantList";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //import restaurantList from './mocks/restaurantMockList';
 
 //console.log(restaurantList);
@@ -44,5 +46,16 @@ const App = () => {
     )
 }
 
+const appRouter = createBrowserRouter([
+    {
+        path: '/',
+        element: <App />
+    },
+    {
+        path: '/about',
+        element: <AboutUs />
+    }
+]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+//root.render(<App />);
+root.render(<RouterProvider router={appRouter} />);

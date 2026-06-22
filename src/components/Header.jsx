@@ -65,8 +65,8 @@ const Header = ({ name }) => (
 );
 
 // Assign default prop in case no header passed
-Header.defaultProps = {
-    name: HEADER.DEFAULT_NAME
-};
+// Header.defaultProps = {
+//     name: HEADER.DEFAULT_NAME
+// };
 
 export default Header;
