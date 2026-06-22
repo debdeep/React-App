@@ -2,7 +2,7 @@ export const HEADER = {
     DEFAULT_NAME: "Food Truck"
 }
 export const FOOTER = {
-    COPYRIGHT_MESSAGE: "wesbite developed and maintained by Debdeep&trade;, 2026",
+    COPYRIGHT_MESSAGE: "&copy&nbspwebsite&nbspdeveloped&nbspand&nbspmaintained&nbsp;by&nbsp;Debdeep&trade;,&nbsp;2026",
     GOTO_TOP: "Go to top"
 }
 export const SEARCH = {

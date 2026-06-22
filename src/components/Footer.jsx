@@ -1,10 +1,15 @@
 import React from "react";
 import { FOOTER } from "./../utils/constants";
 const Footer = () => (
-    <React.Fragment>
-        <div><p> &copy; <i> {FOOTER.COPYRIGHT_MESSAGE}</i> </p></div>
-        <div><a href="#top">{FOOTER.GOTO_TOP}</a></div>
-    </React.Fragment>
-
+    <footer className="app-footer">
+        <div>
+            <p>
+                <span dangerouslySetInnerHTML={{ __html: FOOTER.COPYRIGHT_MESSAGE }} />
+            </p>
+        </div>
+        <div>
+            <a href="#top">{FOOTER.GOTO_TOP}</a>
+        </div>
+    </footer>
 )
 export default Footer;
