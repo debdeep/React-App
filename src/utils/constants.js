@@ -2,7 +2,7 @@ export const HEADER = {
     DEFAULT_NAME: "Food Truck"
 }
 export const FOOTER = {
-    COPYRIGHT_MESSAGE: "&copy&nbspwebsite&nbspdeveloped&nbspand&nbspmaintained&nbsp;by&nbsp;Debdeep&trade;,&nbsp;2026",
+    COPYRIGHT_MESSAGE: "&copy; website developed and maintained&nbsp;by&nbsp;Debdeep&trade;,&nbsp;2026",
     GOTO_TOP: "Go to top"
 }
 export const SEARCH = {
@@ -13,5 +13,8 @@ export const SEARCH = {
 export const RESTAURANT_TYPE = {
     VEG: "Veg",
     NONVEG: "Nonveg"
+}
+export const STAR_RATING = {
+    HEADING: "Star Rating:"
 }
 //export default FOOTER;
