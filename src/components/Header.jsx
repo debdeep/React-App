@@ -1,5 +1,8 @@
 import { HEADER } from "./../utils/constants";
 import logo from "../assets/logo.webp";
+
+import { Link } from "react-router-dom";
+
 /* 
     <React.Fragment></React.Fragment> VS <></.>
     Both are similar while nesting  multiple JSX elements without adding extra DOM nodes but
@@ -63,10 +66,10 @@ const Header = ({ name }) => (
         <h1>{name}</h1>
         <ul>
             <li>
-                <a>About Us</a>
+                <Link to="/about">About Us</Link>
             </li>
             <li>
-                <a>Contact Us</a>
+                <Link to="/contact">Contact Us</Link>
             </li>
         </ul>
     </div>

@@ -18,7 +18,7 @@ const App = () => {
                 <Header name="Food on Wheels" />
             </header>
             <main className="app-body">
-                <Outlet />
+                <Outlet />  {/* Child routes render here */}
             </main>
             <footer className="app-footer">
                 <Footer />
