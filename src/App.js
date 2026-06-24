@@ -1,44 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
-import Header from './components/Header'
-import Search from "./components/Search";
-import Footer from "./components/Footer";
-import AboutUs from "./pages/AboutUs.jsx";
-import RestaurantList from "./components/RestaurantList";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-//import restaurantList from './mocks/restaurantMockList';
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-//console.log(restaurantList);
+import Header from './components/Header'
+import Footer from "./components/Footer";
+import Body from "./components/Body";
+
+//Routes
+import AboutUs from "./pages/AboutUs.jsx";
+import Contact from "./pages/Contact.jsx";
+import Error from "./pages/Error.jsx";
 
 const App = () => {
-    const [originalList, setOriginalList] = useState([]);
-    const [filteredList, setFilteredList] = useState([]);
-    useEffect(() => {
-        getRestaurantData();
-    }, []);
-
-    const getRestaurantData = async () => {
-        try {
-            const response = await fetch("https://namastedev.com/api/v1/listRestaurants");
-            const data = await response.json();
-            const restaurants = data?.data?.data?.cards?.[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
-            console.log("dataFromAPI", restaurants);
-            setOriginalList(restaurants);
-            setFilteredList(restaurants);
-        } catch (error) {
-            console.error("Failed to load restaurants", error);
-        }
-    };
-
     return (
         <div className="app-container">
             <header className="app-header">
                 <Header name="Food on Wheels" />
             </header>
-            <div className="app-body">
-                <Search resListdata={filteredList} setFilteredList={setFilteredList} originalList={originalList} />
-                <RestaurantList resListdata={filteredList} />
-            </div>
+            <main className="app-body">
+                <Outlet />
+            </main>
             <footer className="app-footer">
                 <Footer />
             </footer>
@@ -49,12 +30,27 @@ const App = () => {
 const appRouter = createBrowserRouter([
     {
         path: '/',
-        element: <App />
+        element: <App />,
+        errorElement: <Error />,
+        children: [
+            {
+                index: true,
+                element: <Body />
+            },
+            {
+                path: 'about',
+                element: <AboutUs />
+            },
+            {
+                path: 'contact',
+                element: <Contact />
+            },
+            {
+                path: '*',
+                element: <Error />
+            }
+        ]
     },
-    {
-        path: '/about',
-        element: <AboutUs />
-    }
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 //root.render(<App />);

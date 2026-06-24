@@ -17,7 +17,7 @@ function getLogoUrl(mod) {
     // If bundler returned a module-like object, try common locations
     try {
         if (typeof mod.default === "string") return mod.default;
-    } catch (e) {}
+    } catch (e) { }
 
     // Some bundlers attach the URL as a non-enumerable property or under other keys
     try {
@@ -26,12 +26,12 @@ function getLogoUrl(mod) {
             const v = mod[k];
             if (typeof v === 'string' && /\.(webp|png|jpe?g|svg)$/i.test(v)) return v;
         }
-    } catch (e) {}
+    } catch (e) { }
 
     // import.meta fallback
     try {
         return new URL('../assets/logo.webp', import.meta.url).href;
-    } catch (e) {}
+    } catch (e) { }
 
     // importmap lookup on the page (dev server like Parcel exposes importmap)
     try {
@@ -48,7 +48,7 @@ function getLogoUrl(mod) {
                 }
             }
         }
-    } catch (e) {}
+    } catch (e) { }
 
     return "";
 }
@@ -61,6 +61,14 @@ const Header = ({ name }) => (
     <div className="header-content">
         <img src={logoUrl} alt="Logo of the Food Camper App" className="app-logo" loading="lazy" />
         <h1>{name}</h1>
+        <ul>
+            <li>
+                <a>About Us</a>
+            </li>
+            <li>
+                <a>Contact Us</a>
+            </li>
+        </ul>
     </div>
 );
 

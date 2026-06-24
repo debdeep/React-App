@@ -17,6 +17,15 @@
     margin: 0;
 }
 
+.app-header .header-content ul>li {
+    color: black;
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px;
+    font-size: 20px;
+
+}
+
 .app-logo {
     height: 80px;
     width: auto;
@@ -154,6 +163,25 @@ body,
 .input-search {
     padding: 4px;
 }
+
 .star-rating {
     color: sandybrown;
+}
+
+.route-error {
+    display: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5b50a;
+    min-height: 100vh;
+    width: 100%;
+    padding: 2rem;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .route-error {
+        min-height: auto;
+        padding: 1.5rem;
+    }
 }
