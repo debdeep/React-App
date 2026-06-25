@@ -9,6 +9,7 @@ import Body from "./components/Body";
 //Routes
 import AboutUs from "./pages/AboutUs.jsx";
 import Contact from "./pages/Contact.jsx";
+import RestaurantMenu from "./components/RestaurantMenu.jsx";
 import Error from "./pages/Error.jsx";
 
 const App = () => {
@@ -44,6 +45,10 @@ const appRouter = createBrowserRouter([
             {
                 path: 'contact',
                 element: <Contact />
+            },
+            {
+                path: 'restaurant/:id',
+                element: <RestaurantMenu />
             },
             {
                 path: '*',

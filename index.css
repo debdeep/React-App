@@ -178,6 +178,139 @@ body,
     padding: 2rem;
 }
 
+/* Card Link Styles */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    position: relative;
+}
+
+.card {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.card-link:hover .card {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+}
+
+.card-hover-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-link:hover .card-hover-icon {
+    opacity: 1;
+}
+
+.card-link:hover .card {
+    opacity: 0.7;
+}
+
+.detail-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.back-btn {
+    padding: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+    background-color: lightblue;
+    border: 1px solid grey;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.back-btn:hover {
+    background-color: #a0d8e8;
+}
+
+.restaurant-menu {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.menu-header {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    background-color: azure;
+    border: 1px solid grey;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.menu-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.menu-info h2 {
+    color: coral;
+    margin: 0 0 1rem 0;
+    font-size: 1.8rem;
+}
+
+.menu-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.menu-items {
+    background-color: azure;
+    border: 1px solid grey;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-items h3 {
+    color: coral;
+    margin-top: 0;
+}
+
+.menu-items ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-items li {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    border-left: 4px solid lightblue;
+}
+
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     .route-error {
