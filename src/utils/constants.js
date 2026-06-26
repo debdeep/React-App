@@ -1,3 +1,6 @@
+export const APPLICATION_APIS = {
+    GIT_USER_API: "https://api.github.com/users/"
+}
 export const HEADER = {
     DEFAULT_NAME: "Food Truck"
 }
@@ -17,4 +20,9 @@ export const RESTAURANT_TYPE = {
 export const STAR_RATING = {
     HEADING: "Star Rating:"
 }
-//export default FOOTER;
+
+export const RESTAURANT_MENU = {
+    NOT_FOUND: "Restaurant not found",
+    BACK_TO_HOME: "Back to Home",
+    MISSING_ID_HEADER: "Select a restaurant to view menu"
+}

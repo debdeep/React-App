@@ -1,16 +1,10 @@
 import User from "../components/User";
 import UserClass from "../components/UserClass";
-import { useState, useEffect } from "react";
+import useGitInfo from "../utils/hooks/useGitInfo";
 
 const AboutUs = () => {
-    const [userApiData, setUserApiData] = useState([]);
-    useEffect(() => {
-        getProfileData();
-    }, []);
-    const getProfileData = async () => {
-        const response = await ((await fetch("https://api.github.com/users/debdeep")).json());
-        setUserApiData(response);
-    }
+    const userApiData = useGitInfo("debdeep");
+
     return (
         <>
             <h1>Welcome to About us Page</h1>
@@ -18,6 +12,6 @@ const AboutUs = () => {
             {/* <UserClass name="Debdeep(class based)" location="Pune" contact="debdeepm89@gmail.com" /> */}
         </>
     );
-}
+};
 
 export default AboutUs;

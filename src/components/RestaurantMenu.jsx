@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { RESTAURANT_MENU } from "./../utils/constants";
 
 const RestaurantMenu = () => {
     const { id } = useParams();
@@ -65,8 +66,8 @@ const RestaurantMenu = () => {
     if (!restaurant && id) {
         return (
             <div className="restaurant-menu">
-                <h2>Restaurant not found</h2>
-                <button onClick={() => navigate('/')}>Back to Home</button>
+                <h2>{RESTAURANT_MENU.NOT_FOUND}</h2>
+                <button onClick={() => navigate('/')}>{RESTAURANT_MENU.BACK_TO_HOME}</button>
             </div>
         );
     }
@@ -74,7 +75,7 @@ const RestaurantMenu = () => {
     if (!id) {
         return (
             <div className="restaurant-menu">
-                <h2>Select a restaurant to view menu</h2>
+                <h2>{RESTAURANT_MENU.MISSING_ID_HEADER}</h2>
             </div>
         );
     }
