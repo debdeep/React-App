@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet, useLocation } from "react-router-dom";
 
@@ -7,7 +7,8 @@ import Footer from "./components/Footer";
 import Body from "./components/Body";
 
 //Routes
-import AboutUs from "./pages/AboutUs.jsx";
+//import AboutUs from "./pages/AboutUs.jsx";
+const AboutUs = lazy(() => import("./pages/AboutUs.jsx"));
 import Contact from "./pages/Contact.jsx";
 import Login from "./pages/Login.jsx";
 import RestaurantMenu from "./components/RestaurantMenu.jsx";
