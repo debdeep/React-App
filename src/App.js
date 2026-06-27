@@ -9,7 +9,8 @@ import Body from "./components/Body";
 //Routes
 //import AboutUs from "./pages/AboutUs.jsx";
 const AboutUs = lazy(() => import("./pages/AboutUs.jsx"));
-import Contact from "./pages/Contact.jsx";
+//import Contact from "./pages/Contact.jsx";
+const Contact = lazy(() => import("./pages/Contact.jsx"));
 import Login from "./pages/Login.jsx";
 import RestaurantMenu from "./components/RestaurantMenu.jsx";
 import Error from "./pages/Error.jsx";
