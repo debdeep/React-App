@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Outlet, useLocation } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet, useLocation, Navigate } from "react-router-dom";
 
 import Header from './components/Header'
 import Footer from "./components/Footer";
@@ -20,9 +20,23 @@ import Error from "./pages/Error.jsx";
 import { Provider } from "react-redux";
 import appStore from "./utils/store/appStore.js";
 
+const isAuthenticated = () => typeof window !== "undefined" && localStorage.getItem("isLoggedIn") === "true";
+
+const ProtectedRoute = ({ children }) => {
+    return isAuthenticated() ? children : <Navigate to="/login" replace />;
+};
+
+const PublicRoute = ({ children }) => {
+    return isAuthenticated() ? <Navigate to="/home" replace /> : children;
+};
+
+const RootRedirect = () => {
+    return <Navigate to={isAuthenticated() ? "/home" : "/login"} replace />;
+};
+
 const App = () => {
     const location = useLocation();
-    const hideLayout = location.pathname === "/";
+    const hideLayout = location.pathname === "/login";
 
     return (
         <Provider store={appStore}>
@@ -52,27 +66,31 @@ const appRouter = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Login />
+                element: <RootRedirect />
+            },
+            {
+                path: 'login',
+                element: <PublicRoute><Login /></PublicRoute>
             },
             {
                 path: 'home',
-                element: <Body />
+                element: <ProtectedRoute><Body /></ProtectedRoute>
             },
             {
                 path: 'about',
-                element: <Suspense fallback={<h2>About Us Loading....</h2>}> <AboutUs /></Suspense>
+                element: <ProtectedRoute><Suspense fallback={<h2>About Us Loading....</h2>}><AboutUs /></Suspense></ProtectedRoute>
             },
             {
                 path: 'contact',
-                element: <Suspense fallback={<h2>Contact Us Loading....</h2>}> <Contact /></Suspense>
+                element: <ProtectedRoute><Suspense fallback={<h2>Contact Us Loading....</h2>}><Contact /></Suspense></ProtectedRoute>
             },
             {
                 path: 'restaurant/:id',
-                element: <RestaurantMenu />
+                element: <ProtectedRoute><RestaurantMenu /></ProtectedRoute>
             },
             {
-                path: '/cart',
-                element: <Cart />
+                path: 'cart',
+                element: <ProtectedRoute><Cart /></ProtectedRoute>
             },
             {
                 path: '*',

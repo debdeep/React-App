@@ -1,7 +1,7 @@
 import { HEADER } from "./../utils/constants";
 import logo from "../assets/logo.webp";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 /* 
@@ -65,13 +65,20 @@ const Header = ({ name }) => {
 
     //subscribing to store using a selector to read items count
     const cartItems = useSelector((store) => store.cart.items);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem("isLoggedIn");
+        navigate("/login");
+    };
+
     return (
         <div className="header-content">
             <img src={logoUrl} alt="Logo of the Food Camper App" className="app-logo" loading="lazy" />
             <h1>{name}</h1>
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/home">Home</Link>
                 </li>
                 <li>
                     <Link to="/about">About Us</Link>
@@ -81,6 +88,9 @@ const Header = ({ name }) => {
                 </li>
                 <li>
                     <Link to="/cart">Cart-({cartItems.length} Items)</Link>
+                </li>
+                <li>
+                    <button className="logout-btn" onClick={handleLogout}>Logout</button>
                 </li>
             </ul>
         </div>

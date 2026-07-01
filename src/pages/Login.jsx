@@ -21,6 +21,7 @@ const Login = () => {
             return errors;
         },
         onSubmit: values => {
+            localStorage.setItem("isLoggedIn", "true");
             navigate("/home");
         }
     });
