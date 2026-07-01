@@ -2,6 +2,7 @@ import { HEADER } from "./../utils/constants";
 import logo from "../assets/logo.webp";
 
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 /* 
     <React.Fragment></React.Fragment> VS <></.>
@@ -60,23 +61,31 @@ const logoUrl = getLogoUrl(logo);
 // Debug: show what was resolved for the logo (remove after verification)
 console.log('Header logo import ->', logo, 'resolved logoUrl ->', logoUrl);
 
-const Header = ({ name }) => (
-    <div className="header-content">
-        <img src={logoUrl} alt="Logo of the Food Camper App" className="app-logo" loading="lazy" />
-        <h1>{name}</h1>
-        <ul>
-            <li>
-                <Link to="/">Home</Link>
-            </li>
-            <li>
-                <Link to="/about">About Us</Link>
-            </li>
-            <li>
-                <Link to="/contact">Contact Us</Link>
-            </li>
-        </ul>
-    </div>
-);
+const Header = ({ name }) => {
+
+    //subscribing to store using a selector to read items count
+    const cartItems = useSelector((store) => store.cart.items);
+    return (
+        <div className="header-content">
+            <img src={logoUrl} alt="Logo of the Food Camper App" className="app-logo" loading="lazy" />
+            <h1>{name}</h1>
+            <ul>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/about">About Us</Link>
+                </li>
+                <li>
+                    <Link to="/contact">Contact Us</Link>
+                </li>
+                <li>
+                    <Link to="/cart">Cart-({cartItems.length} Items)</Link>
+                </li>
+            </ul>
+        </div>
+    )
+};
 
 // Assign default prop in case no header passed
 // Header.defaultProps = {

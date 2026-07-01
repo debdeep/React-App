@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { RESTAURANT_MENU } from "./../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/store/cartSlice";
 
 const RestaurantMenu = () => {
     const { id } = useParams();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [restaurant, setRestaurant] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -83,6 +86,11 @@ const RestaurantMenu = () => {
     const { name, cuisines, locality, areaName, veg, avgRating, totalRatingsString, cloudinaryImageId, sla } = restaurant?.info || {};
     const menuItems = restaurant?.menu || [];
 
+    const handleAddItem = (item) => {
+        //dispatch an action
+        dispatch(addItem(item));
+    };
+
     return (
         <div className="restaurant-menu">
             <button className="back-btn" onClick={() => navigate('/')}>← Back</button>
@@ -113,7 +121,9 @@ const RestaurantMenu = () => {
                 <ul>
                     {menuItems?.length > 0 ? (
                         menuItems.map((item, idx) => (
-                            <li key={idx}>{item?.name || "Menu Item"} - ₹{(item?.price / 100 || item?.defaultPrice / 100)}</li>
+                            <li key={idx}>{item?.name || "Menu Item"} - ₹{(item?.price / 100 || item?.defaultPrice / 100)}
+                                <button className="addToCart" onClick={() => handleAddItem(item)}>+ Add to cart</button>
+                            </li>
                         ))
                     ) : (
                         <>
@@ -124,7 +134,7 @@ const RestaurantMenu = () => {
                     )}
                 </ul>
             </div>
-        </div>
+        </div >
     );
 }
 

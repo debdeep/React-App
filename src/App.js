@@ -13,28 +13,35 @@ const AboutUs = lazy(() => import("./pages/AboutUs.jsx"));
 const Contact = lazy(() => import("./pages/Contact.jsx"));
 import Login from "./pages/Login.jsx";
 import RestaurantMenu from "./components/RestaurantMenu.jsx";
+import Cart from "./components/Cart.jsx";
 import Error from "./pages/Error.jsx";
+
+//redux imports
+import { Provider } from "react-redux";
+import appStore from "./utils/store/appStore.js";
 
 const App = () => {
     const location = useLocation();
     const hideLayout = location.pathname === "/";
 
     return (
-        <div className="app-container">
-            {!hideLayout && (
-                <header className="app-header">
-                    <Header name="Food on Wheels" />
-                </header>
-            )}
-            <main className="app-body">
-                <Outlet />  {/* Child routes render here */}
-            </main>
-            {!hideLayout && (
-                <footer className="app-footer">
-                    <Footer />
-                </footer>
-            )}
-        </div>
+        <Provider store={appStore}>
+            <div className="app-container">
+                {!hideLayout && (
+                    <header className="app-header">
+                        <Header name="Food on Wheels" />
+                    </header>
+                )}
+                <main className="app-body">
+                    <Outlet />  {/* Child routes render here */}
+                </main>
+                {!hideLayout && (
+                    <footer className="app-footer">
+                        <Footer />
+                    </footer>
+                )}
+            </div>
+        </Provider>
     )
 }
 
@@ -62,6 +69,10 @@ const appRouter = createBrowserRouter([
             {
                 path: 'restaurant/:id',
                 element: <RestaurantMenu />
+            },
+            {
+                path: '/cart',
+                element: <Cart />
             },
             {
                 path: '*',
