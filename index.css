@@ -549,3 +549,9 @@ body,
     background-color: #a0d8e8;
     border-radius: 8px;
 }
+
+.clear-cart {
+    margin: 4px;
+    background-color: lightcoral;
+    border-radius: 8px;
+}
